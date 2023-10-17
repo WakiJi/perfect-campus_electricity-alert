@@ -1,7 +1,7 @@
 # 完美校园 低电费提醒🔔 [![完美校园低电费提醒](https://github.com/zuwei522/perfect-campus_electricity-alert/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/zuwei522/perfect-campus_electricity-alert/actions/workflows/main.yml)
 
 你是否曾经因为忘记检查电费，而遭遇晚上断电，还恰好处于充值系统的维护时间？ /(ㄒoㄒ)/~~  
-于是，为了避免悲剧再次发生，这个**使用 Github Action** 定时执行、借助 [Qmsg 酱](https://qmsg.zendee.cn/)发送低电费提醒的 **shell 脚本**就诞生了！ （好耶ヽ(✿ﾟ▽ﾟ)ノ
+于是，为了避免悲剧再次发生，这个**使用 Github Action** 定时执行、借助 [Qmsg 酱](https://qmsg.zendee.cn/)/[PushPlus](http://www.pushplus.plus/)发送低电费提醒的 **shell 脚本**就诞生了！ （好耶ヽ(✿ﾟ▽ﾟ)ノ
 
 ## 工作原理
 
@@ -19,6 +19,8 @@
       | ALERT_QQ   | 填入你的 QQ 号 |
       | SCHOOL_ID  | 填入你所在学校的编码👉 [点我查看学校编码](./school-list.md) |
       | STUDENT_ID | 填入你的学号 |
+      | TOKEN      | 填入你的PUSHPLUS TOKEN👉 [点我申请PUSHPLUS TOKEN](http://www.pushplus.plus/) |
+      | TITLE      | 填入你的PUSHPLUS消息推送的自定义标题 |
 
   4. 添加完上述 secret 后，再点击绿色按钮 `New repository secret` 左边的 `Variables` 选项卡，然后点击右侧绿色按钮 `New repository variable`，按照下表依次填入 Name 和 Value
 
