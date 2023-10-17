@@ -49,7 +49,6 @@ do
     # echo $(echo "向与学号 ${STUDENT_ID:0:4}****** 绑定的QQ号 ${ALERT_QQ:0:3}******** 发送消息：$msg")
     echo $(echo "电费不足，正在通过 Qmsg 酱推送消息 ... ...")
     res=$(curl -sd "qq=${ALERT_QQ}&msg=$msg" "https://qmsg.zendee.cn:443/send/${QMSG_KEY}")
-    res=$(curl -s -X POST -d "token=${TOKEN}&title=${TITLE}&content=$msg" "https://www.pushplus.plus/send/")
     QmsgFlag=$(echo $res | jq .success)
     if [ "$QmsgFlag" == "true" ];then   # 输出是否推送成功日志
         echo "发送成功：$res"
@@ -59,4 +58,5 @@ do
     fi
     let i++
 done
+    response=$(curl -s -X POST -d "token=${TOKEN}&title=${TITLE}&content=$msg" "https://www.pushplus.plus/send/")
 echo    # 不知道为什么不加这一行，Action 会报 Error: Process completed with exit code 1.
