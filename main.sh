@@ -5,6 +5,9 @@
 # ALERT_QQ=         # 要推送的 QQ
 # QMSG_KEY=         # Qmsg 酱推送Key 获取方法：https://qmsg.zendee.cn/user 登录Qmsg控制台即可获取我的KEY，选择并添加可用的Qmsg酱的QQ好友，即可接收到消息推送
 # ALERT_THRESHOLD=  # 低电量提醒阈值
+# TOKEN=            #"你的token"
+# TITLE=            #"测试工单"
+URL="https://www.pushplus.plus/send/"
 
 body=$(curl -sd "param=%7B%22cmd%22%3A%22getbindroom%22%2C%22account%22%3A%22${STUDENT_ID}%22%7D&customercode=${SCHOOL_ID}&method=getbindroom" "https://xqh5.17wanxiao.com/smartWaterAndElectricityService/SWAEServlet" | jq .body) # 从完美校园获取信息
 body=$(echo $(echo $(echo $body | sed 's/"{/{/g') | sed 's/}"/}/g') | sed 's/\\"/"/g')  # 手动整理 json 格式
@@ -47,6 +50,7 @@ do
     # echo $(echo "向与学号 ${STUDENT_ID:0:4}****** 绑定的QQ号 ${ALERT_QQ:0:3}******** 发送消息：$msg")
     echo $(echo "电费不足，正在通过 Qmsg 酱推送消息 ... ...")
     res=$(curl -sd "qq=${ALERT_QQ}&msg=$msg" "https://qmsg.zendee.cn:443/send/${QMSG_KEY}")
+    response=$(curl -s -X POST -d "token=${TOKEN}&title=${TITLE}&content=$msg" "${URL}")
     QmsgFlag=$(echo $res | jq .success)
     if [ "$QmsgFlag" == "true" ];then   # 输出是否推送成功日志
         echo "发送成功：$res"
