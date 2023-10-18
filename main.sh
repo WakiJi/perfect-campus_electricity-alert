@@ -5,9 +5,10 @@
 # ALERT_QQ=         # 要推送的 QQ
 # QMSG_KEY=         # Qmsg 酱推送Key 获取方法：https://qmsg.zendee.cn/user 登录Qmsg控制台即可获取我的KEY，选择并添加可用的Qmsg酱的QQ好友，即可接收到消息推送
 # ALERT_THRESHOLD=  # 低电量提醒阈值
-# TOKEN=            #"你的token"
+# PUSHPLUS_TOKEN=   #"你的PUSHPLUS_token"
 # TITLE=            #"测试工单"
 
+TITLE=电费提醒      #自定义推送标题（PUSHPLUS）
 body=$(curl -sd "param=%7B%22cmd%22%3A%22getbindroom%22%2C%22account%22%3A%22${STUDENT_ID}%22%7D&customercode=${SCHOOL_ID}&method=getbindroom" "https://xqh5.17wanxiao.com/smartWaterAndElectricityService/SWAEServlet" | jq .body) # 从完美校园获取信息
 body=$(echo $(echo $(echo $body | sed 's/"{/{/g') | sed 's/}"/}/g') | sed 's/\\"/"/g')  # 手动整理 json 格式
 roomAmount=$(echo $body | jq '.roomlist|length')    # 获取绑定的房间数量
@@ -58,5 +59,5 @@ do
     fi
     let i++
 done
-    response=$(curl -s -X POST -d "token=${TOKEN}&title=${TITLE}&content=$msg" "https://www.pushplus.plus/send/")
+    response=$(curl -s -X POST -d "token=${TOKEN}&title=$TITLE&content=$msg" "https://www.pushplus.plus/send/")
 echo    # 不知道为什么不加这一行，Action 会报 Error: Process completed with exit code 1.

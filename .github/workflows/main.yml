@@ -24,8 +24,7 @@ jobs:
           STUDENT_ID: ${{ secrets.STUDENT_ID }}
           ALERT_QQ: ${{ secrets.ALERT_QQ }}
           ALERT_THRESHOLD: ${{ vars.ALERT_THRESHOLD }}
-          TOKEN:  ${{secrets.TOKEN}}
-          TITLE:  ${{secrets.TITLE}}
+          PUSHPLUS_TOKEN:  ${{secrets.PUSHPLUS_TOKEN}}
         run: |
           chmod 755 ./main.sh
           ./main.sh

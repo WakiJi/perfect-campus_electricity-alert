@@ -20,7 +20,6 @@
       | SCHOOL_ID  | 填入你所在学校的编码👉 [点我查看学校编码](./school-list.md) |
       | STUDENT_ID | 填入你的学号 |
       | TOKEN      | 填入你的PUSHPLUS TOKEN👉 [点我申请PUSHPLUS TOKEN](http://www.pushplus.plus/) |
-      | TITLE      | 填入你的PUSHPLUS消息推送的自定义标题 |
 
   4. 添加完上述 secret 后，再点击绿色按钮 `New repository secret` 左边的 `Variables` 选项卡，然后点击右侧绿色按钮 `New repository variable`，按照下表依次填入 Name 和 Value
 
