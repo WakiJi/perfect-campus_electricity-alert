@@ -5,7 +5,7 @@
 
 ## 工作原理
 
-- 本脚本默认在每天 12 点和 19 点，自动查询在完美校园上所绑定的所有房间或空调的剩余度数，若低于设定的阈值，就通过 Qmsg 酱向指定 QQ 推送消息。
+- 本脚本默认在每天 12 点和 19 点，自动查询在完美校园上所绑定的所有房间或空调的剩余度数，若低于设定的阈值，就通过 Qmsg 酱/PUSHPLUS 向指定 QQ /通道 推送消息。
 
 ## 开始使用
 
@@ -14,12 +14,12 @@
   3. 点击右侧绿色按钮 `New repository secret`，按照下表依次填入 Name 和 Secret
 
       | Name       | Secret |
-      | ---------- | ------ |
+      | :--------: | :----- |
       | QMSG_KEY   | [点我登录 Qmsg 酱控制台](https://qmsg.zendee.cn/user)，找到并填入「我的KEY」。选择并主动添加可用的 Qmsg 酱的QQ好友，即可接收到 bot 的消息推送。|
       | ALERT_QQ   | 填入你的 QQ 号 |
       | SCHOOL_ID  | 填入你所在学校的编码👉 [点我查看学校编码](./school-list.md) |
       | STUDENT_ID | 填入你的学号 |
-      | TOKEN      | 填入你的PUSHPLUS TOKEN👉 [点我申请PUSHPLUS TOKEN](http://www.pushplus.plus/) |
+      | PUSHPLUS_TOKEN | 填入你的PUSHPLUS TOKEN👉 [点我申请PUSHPLUS TOKEN](http://www.pushplus.plus/) |
 
   4. 添加完上述 secret 后，再点击绿色按钮 `New repository secret` 左边的 `Variables` 选项卡，然后点击右侧绿色按钮 `New repository variable`，按照下表依次填入 Name 和 Value
 
